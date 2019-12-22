@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>RSSなどのXMLを読み込みたい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+$(function(){
+	$.ajax({
+		url: "RSS10.rss" , 
+		dataType :  'xml' ,
+		success:function(data) {
+			$("#rss10 h1").text($("channel title",data).text());
+			$("item",data).each(function(){
+				$("#rss10 ul").append($("<li><a href='"+$("link",this).text()+"'>"+$("title",this).text()+"</a></li>"));
+			});
+		}
+	});
+
+	$.ajax({
+		url: "RSS20.rss" , 
+		dataType :  'xml' ,
+		success:function(data) {
+			$("#rss20 h1").text($("channel>title",data).text());
+			$("item",data).each(function(){
+				$("#rss20 ul").append($("<li><a href='"+$("link",this).text()+"'>"+$("title",this).text()+"</a></li>"));
+			});
+		}
+	});
+});
+		</script>
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+		<div id="rss10">
+			<h1></h1>
+			<ul></ul>
+		</div>
+		<div id="rss20">
+			<h1></h1>
+			<ul></ul>
+		</div>
+	</body>
+</html>

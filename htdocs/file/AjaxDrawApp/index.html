@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>AjaxDrowアプリ</title>
+
+
+        <link
+            rel="stylesheet"
+            href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+        />
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+            integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+            crossorigin="anonymous"
+        />
+        <!-- css -->
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <div class="container">
+        <div class="row">
+            <h1 class="app_title col-sm-12">AjaxDrawアプリ</h1>
+            <div class="item col-sm-4">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <canvas
+                            width="60%"
+                            height="60%"
+                            id="square"
+                            class="shape"
+                        ></canvas>
+                    </div>
+                    <div class="col-lg-4">
+                        <canvas
+                            width="60%"
+                            height="60%"
+                            id="triangle"
+                            class="shape"
+                        ></canvas>
+                    </div>
+                    <div class="col-lg-4">
+                        <canvas
+                            width="60%"
+                            height="60%"
+                            id="circle"
+                            class="shape"
+                        ></canvas>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <canvas
+                            width="60%"
+                            height="60%"
+                            class="line"
+                            id="solidline"
+                        ></canvas>
+                    </div>
+                    <div class="col-lg-4">
+                        <canvas
+                            width="60%"
+                            height="60%"
+                            class="line"
+                            id="brokenline"
+                        ></canvas>
+                    </div>
+                    <div class="col-lg-4">
+                        <canvas
+                            width="60%"
+                            height="60%"
+                            class="line"
+                            id="dottedline"
+                        ></canvas>
+                    </div>
+                </div>
+                <div class="row color_item">
+                    <div class="col-lg-2">
+                        <div class="colorpalette" id="white"></div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="colorpalette" id="blue"></div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="colorpalette" id="green"></div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="colorpalette" id="red"></div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="colorpalette" id="yellow"></div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="colorpalette" id="purple"></div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="colorpalette color_active" id="black"></div>
+                    </div>
+                </div>
+                <div class="row text_item">
+                    <h2 class="text_title col-lg-12">Text</h2>
+                    <span class="col-lg-12">
+                        <input
+                            type="text"
+                            class="text_input"
+                            name="text_input"
+                        />
+                        <input
+                            id="font_size"
+                            type="number"
+                            value="16"
+                            min="1"
+                            max="60"
+                            step="1"
+                            name="font_size"
+                        />
+                    </span>
+
+                    <div class="col-lg-12"><div id="text"></div></div>
+                </div>
+
+                <div class="download">
+                    <div id="download_btn">ダウンロード</div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div id="sketch">
+                    <canvas id="sketch_canvas" height="500"></canvas>
+                    <div class="drop_text">ドロップ</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"
+        integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP"
+        crossorigin="anonymous"
+    ></script>
+    <script src="js/jcanvas.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+
+    <script>
+        var left_point = 0; //要素の絶対座標X
+        var top_point = 0; //要素の絶対座標Y
+
+        var mouse_pointX = null; //マウスの座標X
+        var mouse_pointY = null; //マウスの座標Y
+
+        var posX1 = null; //線の始点の座標X
+        var posY1 = null; //線の始点の座標Y
+        var posX2 = null; //線の終点X
+        var posY2 = null; //線の終点Y
+        var click_num = 0; //クリック回数(線を描画するため)
+
+        var shqpe_id; //図形のID名
+        var line_id; //線のID名
+        var color_id; //カラ-パレッドのID名
+        var fontsize = $('input[name="font_size"]').val(); //Fontsize(初期値は16)
+        var text; //入力したテキスト
+
+        var w = $("#sketch").width(); //#sketchの幅を取得
+        $("#sketch_canvas").attr("width", w); //#sketchの幅に#sketch_canvasを合わせる
+
+        //四角形を#squareに描画
+        $("#square").drawPolygon({
+            strokeStyle: "black",
+            strokeWidth: 1,
+            x: 30,
+            y: 30,
+            radius: 30,
+            sides: 4
+        });
+
+        //三角形を#triangleに描画
+        $("#triangle").drawPolygon({
+            strokeStyle: "black",
+            strokeWidth: 1,
+            x: 30,
+            y: 35,
+            radius: 30,
+            sides: 3
+        });
+
+        //丸を#circleに描画
+        $("#circle").drawArc({
+            strokeStyle: "black",
+            strokeWidth: 1,
+            x: 30,
+            y: 30,
+            radius: 25
+        });
+
+        //直線を#solidlineに描画
+        $("#solidline").drawLine({
+            strokeStyle: "black",
+            strokeWidth: 1,
+            x1: 5,
+            y1: 30,
+            x2: 55,
+            y2: 30
+        });
+
+        //破線を#brokenlineに描画
+        $("#brokenline").drawLine({
+            strokeStyle: "black",
+            strokeWidth: 1,
+            strokeWidth: 1,
+            strokeDash: [5],
+            x1: 5,
+            y1: 30,
+            x2: 55,
+            y2: 30
+        });
+
+        //点線を#dottedlineに描画
+        $("#dottedline").drawLine({
+            strokeStyle: "black",
+            strokeWidth: 1,
+            strokeWidth: 1,
+            strokeDash: [2],
+            x1: 5,
+            y1: 30,
+            x2: 55,
+            y2: 30
+        });
+
+        //図形描画処理
+        $(function() {
+            $(".shape").draggable({
+                revert: "invalid", //ドロップしたら元の位置に戻る
+                start: function() {
+                    //ドラッグ開始時の処理
+                    drag_css();
+                },
+                stop: function(e, ui) {
+                    //ドラッグ終了時の処理
+                    dragout_css();
+                    top_point =
+                        ui.offset.top - $("#sketch_canvas").offset().top; //要素の絶対座標Yを計算
+                    left_point =
+                        ui.offset.left - $("#sketch_canvas").offset().left; //要素の絶対座標Xを計算
+                    shqpe_id = $(this).attr("id"); //ドラッグした図形のid名を取得
+                    pointjs_ajax("図形"); //ajax通信
+                }
+            });
+        });
+
+        //線描画処理
+        $(function() {
+            $("#sketch_canvas").click(function() {
+                if ($(".line").hasClass("line_active")) {
+                    //lineがactiveのとき
+                    if (click_num == 0) {
+                        (posX1 = mouse_pointX), (posY1 = mouse_pointY);
+                        ++click_num;
+                        return false;
+                    } else if (click_num == 1) {
+                        (posX2 = mouse_pointX), (posY2 = mouse_pointY);
+                        pointjs_ajax("線形"); //ajax通信
+                        click_num = 0;
+                    }
+                }
+            });
+        });
+
+        //line_btnのクリックイベント
+        $(function() {
+            var check_line_id;
+            $(".line").on("click", function() {
+                check_line_id = line_id;
+                if ($(".line").hasClass("line_active")) {
+                    $(".line").removeClass("line_active");
+                }
+                $(this).addClass("line_active");
+                line_id = $(this).attr("id");
+
+                if (check_line_id == $(this).attr("id")) {
+                    line_id = null;
+                    $(".line").removeClass("line_active");
+                }
+            });
+        });
+
+        //イベントオブジェクトからマウスの各座標を取得
+        $("#sketch_canvas").mousemove(function(e) {
+            mouse_pointX = e.offsetX;
+            mouse_pointY = e.offsetY;
+        });
+
+        //画像化
+        $("#download_btn").on("click", function() {
+            let canvas = document.getElementById("sketch_canvas");
+            let link = document.createElement("a"); //aタグを追加
+            link.href = canvas.toDataURL("image/png"); //DataURLを取得
+            link.download = "canvas"; //ダウンロードのファイル名
+            link.click(); //linkをclick
+        });
+
+        //カラーパレット処理
+        $(function() {
+            $(".colorpalette").on("click", function() {
+                $(".colorpalette").removeClass("color_active"); //選択中の色を解除
+                $(this).toggleClass("color_active"); //クリックした色を選択
+                color_id = $(".color_active").attr("id"); //選択したId名を取得
+            });
+        });
+
+        //テキスト処理
+        $(function() {
+            // ドラッグ
+
+            $("#text").draggable({
+                revert: "invalid", //ドロップしたら元の位置に戻る
+                helper: "clone", //移動用のクローンを作成
+                start: function() {
+                    //ドラッグ開始時の処理
+                    if (text != null) {
+                        drag_css();
+                    }
+                },
+                stop: function(e, ui) {
+                    if (text != null) {
+                        //ドラッグ終了時の処理
+                        dragout_css();
+                        top_point =
+                            ui.offset.top - $("#sketch_canvas").offset().top; //要素の絶対座標Yを計算
+                        left_point =
+                            ui.offset.left - $("#sketch_canvas").offset().left; //要素の絶対座標Xを計算
+                        $("#text").toggleClass("text_active");
+                        pointjs_ajax("テキスト"); //ajax通信
+                    }
+                }
+            });
+        });
+
+        //text_inputにキーボード入力時の処理
+        $(".text_input").keyup(function() {
+            ajax_text();
+        });
+
+        //font_sizeをクリック時の処理
+        $("#font_size").on("click", function() {
+            fontsize = $('input[name="font_size"]').val(); //フォントサイズを取得
+        });
+        //textのajax通信
+        function ajax_text() {
+            $.ajax({
+                url: "./text.php",
+                type: "POST",
+                data: { text_input: $(".text_input").val() }
+            })
+                //通信が成功した時
+                .done(function(data) {
+                    text = data;
+                    $("#text").html(data);
+                    console.log("テキストの通信が成功しました。");
+                })
+                //通信が失敗した時
+                .fail(function(data) {
+                    console.log("テキストの通信が失敗しました。");
+                    $("#text_error").html(data);
+                });
+        }
+
+        //ドラッグ時のcss
+        function drag_css() {
+            $("#sketch_canvas").css({
+                border: "dashed 10px #696969",
+                "border-radius": "1%",
+                "background-color": "#c0c0c0",
+                opacity: "0.3"
+            });
+
+            $(".drop_text").css("display", "block");
+        }
+
+        function dragout_css() {
+            $("#sketch_canvas").css({
+                border: "",
+                "border-radius": "",
+                "background-color": "",
+                opacity: ""
+            });
+            $(".drop_text").css("display", "none");
+        }
+
+        //pointjsへのajax通信
+        function pointjs_ajax(obj_name) {
+            $.ajax({
+                url: "./point.js",
+                type: "GET",
+                dataType: "script"
+            })
+                //通信が成功した時
+                .done(data => {
+                    console.log(obj_name + "の通信が成功しました。");
+                })
+                //通信が失敗した時
+                .fail(data => {
+                    console.log(obj_name + "図形の通信が失敗しました。");
+                });
+        }
+    </script>
+</html>

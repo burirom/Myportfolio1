@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>複数のセレクトボックスを連動させたい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+var subCategory = {
+  "a" : [
+    {
+      "key":"a-1" , 
+      "value":"サブメニューA-1"
+    } , 
+    {
+      "key":"a-2" , 
+      "value":"サブメニューA-2"
+    } , 
+    {
+      "key":"a-3" , 
+      "value":"サブメニューA-3"
+    } , 
+    {
+      "key":"a-4" , 
+      "value":"サブメニューA-4"
+    } 
+  ] , 
+  "b" : [
+    {
+      "key":"b-1" , 
+      "value":"サブメニューB-1"
+    } , 
+    {
+      "key":"b-2" , 
+      "value":"サブメニューB-2"
+    } , 
+    {
+      "key":"b-3" , 
+      "value":"サブメニューB-3"
+    } , 
+    {
+      "key":"b-4" , 
+      "value":"サブメニューB-4"
+    } 
+  ] , 
+  "c" : [
+    {
+      "key":"c-1" , 
+      "value":"サブメニューC-1"
+    } , 
+    {
+      "key":"c-2" , 
+      "value":"サブメニューC-2"
+    } , 
+    {
+      "key":"c-3" , 
+      "value":"サブメニューC-3"
+    } , 
+    {
+      "key":"c-4" , 
+      "value":"サブメニューC-4"
+    } 
+  ] , 
+  "d" : [
+    {
+      "key":"d-1" , 
+      "value":"サブメニューD-1"
+    } , 
+    {
+      "key":"d-2" , 
+      "value":"サブメニューD-2"
+    } , 
+    {
+      "key":"d-3" , 
+      "value":"サブメニューD-3"
+    } , 
+    {
+      "key":"d-4" , 
+      "value":"サブメニューD-4"
+    } 
+  ]
+}
+			$(function(){
+				$("#select1").change(function(){
+					$("#select2").empty();
+					$.each(subCategory[$(this).val()],function(key,value){
+						$("#select2").append("<option value='"+value["key"]+"'>"+value["value"]+"</option>");
+					});
+				});
+			});
+			
+		</script>
+		<style type="text/css">
+				div{
+					margin:100px;
+				}
+		</style>
+	</head>
+	<body>
+		<div>
+			<select id="select1">
+				<option value="a">カテゴリーA</option>
+				<option value="b">カテゴリーB</option>
+				<option value="c">カテゴリーC</option>
+				<option value="d">カテゴリーD</option>
+			</select>
+			<select id="select2">
+				<option></option>
+			</select>
+		</div>
+	</body>
+</html>

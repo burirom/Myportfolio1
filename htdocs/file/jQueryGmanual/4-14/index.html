@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>画像の縦横比を固定して縮小したい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+}
+ul{
+	margin:10px;
+	width:600px;
+	border:1px blue solid;
+	padding-bottom:1px;
+}
+ul:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+ul li{
+	list-style-type:none;
+	margin:2px;
+	border:1px red solid;
+	width:194px;
+	float:left;
+	margin-left:1px;
+}
+		</style>
+		<script type="text/javascript">
+$(function(){
+	var maxHeight=0;
+	$("li").each(function(){
+		if(maxHeight<$(this).height()){
+			maxHeight = $(this).height();
+		}
+	}).height(maxHeight);
+});
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</li> 
+			<li>テキストテキストテキストテキストテキストテキストテキストテキスト</li> 
+			<li>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</li> 
+			<li>テキストテキストテキストテキストテキストテキスト</li> 
+			<li>テキストテキストテキストテキストテキストテキストテキスト</li> 
+			<li>テキストテキストテキストテキストテキスト</li>
+		</ul>
+	</body>
+</html>

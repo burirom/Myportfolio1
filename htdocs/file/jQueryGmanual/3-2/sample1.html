@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3-2　 画像のプリロードを行いたい</title>
+		<script type="text/javascript" src="script/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+$("<img>").attr("src","rollover.jpg");
+$(function(){
+	$("img").mouseover(function() {
+		$(this).attr("src","rollover.jpg");
+	}).mouseout(function(){
+		$(this).attr("src","default.jpg");
+	});
+});
+		</script>
+	</head>
+	<body>
+	<img src="default.jpg" alt="" />
+	</body>
+</html>

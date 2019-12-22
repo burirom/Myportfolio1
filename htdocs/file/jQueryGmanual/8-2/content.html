@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>フォーム他のページの要素を読み込みたい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+$(function(){
+	$("#sideNews").load("index.html #news");
+})
+		</script>
+		<style type="text/css">
+			#container{
+				width:754px;
+				margin:50px auto;
+				border:1px solid black;
+				padding:10px;
+				overflow:hidden;
+			}
+			#nav{
+				width:200px;
+				border:1px solid black;
+				padding:10px;
+				float:left;
+			}
+			#nav ul{
+				margin:0;
+				padding-left:20px;
+			}
+			#nav ul li{
+				padding-bottom:20px;
+			}
+			#main{
+				width:500px;
+				border:1px solid black;
+				padding:10px;
+				float:right;
+			}
+			#nav dd{
+				margin:10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div id="nav">
+				<ul>
+					<li><a href="index.html">TOP</a></li>
+					<li><a href="content.html">テキストテキストテキスト</a></li>
+					<li><a href="content.html">テキストテキストテキスト</a></li>
+					<li><a href="content.html">テキストテキストテキスト</a></li>
+					<li><a href="content.html">テキストテキストテキスト</a></li>
+				</ul>
+				<div id="sideNews"></div>
+			</div>
+			<div id="main">
+				<div>
+					<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+					<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+					<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+					<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+					<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+					<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+					<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+					<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+					<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+					<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+					<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+					<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

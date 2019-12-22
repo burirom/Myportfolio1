@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>画像の縦横比を固定して縮小したい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="jquery.gradient.js"></script>
+		<style type="text/css">
+table{
+	margin:100px auto;
+	border:1px solid #CCC;
+}
+td{
+	width:200px;
+	height:200px;
+	padding:1px;
+	border:1px solid #CCC;
+	text-align:center;
+	vertical-align: middle;
+}
+		</style>
+		<script type="text/javascript">
+$(window).load(function(){
+	$("img").each(function(){
+		if($(this).height()>$(this).width()){
+			if($(this).height()>200){
+				$(this).height(200);
+			}
+		}else{
+			if($(this).width()>200){
+				$(this).width(200);
+			}
+		}
+	});
+});
+		</script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td><img src="photo1.jpg" alt="" /></td>
+				<td><img src="photo2.jpg" alt="" /></td>
+				<td><img src="photo3.jpg" alt="" /></td>
+				<td><img src="photo4.jpg" alt="" /></td>
+				<td><img src="photo5.jpg" alt="" /></td>
+			</tr>
+		</table>
+	</body>
+</html>

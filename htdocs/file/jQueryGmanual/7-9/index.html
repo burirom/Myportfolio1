@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<title>スクロールでページ遷移をしたい サンプル</title>
+	<link type="text/css" rel="stylesheet" href="css/import.css" />
+	<script type="text/javascript" src="js/lib/jquery.js"></script>
+	<script type="text/javascript" src="js/lib/easing.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('ul.nav a').click(function() {
+				var hash = this.hash,
+					targetPos = $(hash).offset()
+				$('html, body').animate({
+					scrollTop: targetPos.top,
+					scrollLeft: targetPos.left
+				}, {
+					queue: false,
+					easing: 'easeInOutCirc',
+					duration: 500,
+					complete: function() {
+						location.hash = hash;
+					}
+				});
+				
+				return false;
+			});
+		});
+	</script>
+</head>
+
+<body>
+
+<div id="top">
+	<h1>スクロールでページ遷移をしたい: トップ</h1>
+	<p></p>
+	<ul class="nav">
+		<li><a href="#top" class="current">TOP</a></li>
+		<li><a href="#about">About</a></li>
+		<li><a href="#works">Works</a></li>
+		<li><a href="#contact">Contact</a></li>
+	</ul>
+</div>
+
+<div id="about">
+	<h2>サイト概要</h2>
+	<p></p>
+	<ul class="nav">
+		<li><a href="#top">TOP</a></li>
+		<li><a href="#about" class="current">About</a></li>
+		<li><a href="#works">Works</a></li>
+		<li><a href="#contact">Contact</a></li>
+	</ul>
+</div>
+
+<div id="works">
+	<h2>実績</h2>
+	<p></p>
+	<ul class="nav">
+		<li><a href="#top">TOP</a></li>
+		<li><a href="#about">About</a></li>
+		<li><a href="#works" class="current">Works</a></li>
+		<li><a href="#contact">Contact</a></li>
+	</ul>
+</div>
+
+<div id="contact">
+	<h2>お問い合せ</h2>
+	<p></p>
+	<ul class="nav">
+		<li><a href="#top">TOP</a></li>
+		<li><a href="#about">About</a></li>
+		<li><a href="#works">Works</a></li>
+		<li><a href="#contact" class="current">Contact</a></li>
+	</ul>
+</div>
+
+</body>
+</html>

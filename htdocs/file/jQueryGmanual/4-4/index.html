@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>画像にリフレクション効果を与えたい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="reflection.js"></script>
+		<script type="text/javascript">
+$(function(){
+$("#photo1").reflect({height:0.5,opacity:0.8});
+});
+		</script>
+		<style type="text/css">
+body{
+	background:black;
+}
+h1{
+	padding:30px;
+}
+
+		</style> 
+	</head>
+	<body>
+		<h1><img src="photo.jpg" class="reflect" alt="" /></h1>
+		
+		<img src="photo.jpg" id="photo1" alt="" />
+	</body>
+</html>

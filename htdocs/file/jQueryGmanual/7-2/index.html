@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<title>slideDown, slideUp サンプル</title>
+	<link type="text/css" rel="stylesheet" href="css/import.css" />
+	<script type="text/javascript" src="js/lib/jquery.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('#slideUp').click(function() {
+				$('#slide').slideUp('slow');
+			});
+			$('#slideDown').click(function() {
+				$('#slide').slideDown('fast');
+			});
+		});
+	</script>
+</head>
+
+<body>
+
+<div id="wrap">
+	
+	<p>
+		<input type="button" id="slideUp" value="slideUp" />
+		<input type="button" id="slideDown" value="slideDown" />
+	</p>
+	
+	<div id="slide"></div>
+	
+</div>
+
+</body>
+</html>

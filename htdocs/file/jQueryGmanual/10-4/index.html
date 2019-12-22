@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>iPhoneのUIを作成したい</title>
+		<style media="screen">
+			@import "jqtouch/jqtouch.min.css";
+			@import "themes/jqt/theme.min.css";
+		</style>
+		<script src="jquery-1.4.2.min.js"></script>
+		<script src="jqtouch/jqtouch.min.js"></script>
+		<script>
+		var jQT = new $.jQTouch();
+		</script>
+		<style media="screen">
+			section p{
+				padding: 20px;
+				color:white;
+				font-size:small;
+			}
+			#about p{
+				text-align:center;
+			}
+		</style>
+	</head>
+	<body>
+	
+	<!-- home ページ -->
+	<section id="home">
+		<div class="toolbar">
+			<h1>jQTouch</h1>
+			<a href="#about" class="button pop" >about</a>
+		</div>
+		<div class="info"><h3>jQTouchサンプルサイトです。</h3></div>
+		<h2>メニュー</h2>
+		<ul>
+			<li><a href="#menu1" class="slide">メニュー1</a></li>
+			<li class="arrow"><a href="#menu2" class="slide">メニュー2</a></li>
+			<li><a href="#menu3" class="slide">メニュー3</a> <small class="counter">a</small></li>
+			<li class="forward"><a href="#menu4" class="slide">メニュー4</a></li>
+		</ul>
+		<ul class="individual">
+				<li><a class="goback" href="#">戻る</a></li>
+				<li><a href="#confirm">確認</a></li>
+		</ul>
+	</section>
+	<!-- /home ページ -->
+
+	<!-- about ページ -->
+	<section id="about">
+		<div class="toolbar">
+			<h1>about</h1>
+			<a class="back" href="#">Back</a>
+		</div>
+		<p>jQTouchサンプルサイトです</p>
+		<a class="whiteButton goback" href="#">戻る</a>
+	</section>
+	<!-- /about ページ -->
+	
+	<!-- menu1 ページ -->
+	<section id="menu1">
+		<div class="toolbar">
+			<h1>menu1</h1>
+			<a class="back" href="#">Back</a>
+		</div>
+		<p>jQTouchサンプルサイトです</p>
+		<a class="whiteButton goback" href="#">戻る</a>
+	</section>
+	<!-- /menu1 ページ -->
+	
+	<!-- menu2 ページ -->
+	<section id="menu2">
+		<div class="toolbar">
+			<h1>menu2</h1>
+			<a class="back" href="#">Back</a>
+		</div>
+		<p>jQTouchサンプルサイトです</p>
+		<a class="whiteButton goback" href="#">戻る</a>
+	</section>
+	<!-- /menu2 ページ -->
+
+	<!-- menu3 ページ -->
+	<section id="menu3">
+		<div class="toolbar">
+			<h1>menu3</h1>
+			<a class="back" href="#">Back</a>
+		</div>
+		<p>jQTouchサンプルサイトです</p>
+		<a class="whiteButton goback" href="#">戻る</a>
+	</section>
+	<!-- /menu3 ページ -->
+
+	<!-- menu4 ページ -->
+	<section id="menu4">
+		<div class="toolbar">
+			<h1>menu4</h1>
+			<a class="back" href="#">Back</a>
+		</div>
+		<p>jQTouchサンプルサイトです</p>
+		<a class="whiteButton goback" href="#">戻る</a>
+	</section>
+	<!-- /menu4 ページ -->
+
+	<!-- menu5 ページ -->
+	<section id="menu5">
+		<div class="toolbar">
+			<h1>menu5</h1>
+			<a class="back" href="#">Back</a>
+		</div>
+		<p>jQTouchサンプルサイトです</p>
+		<a class="whiteButton goback" href="#">戻る</a>
+	</section>
+	<!-- /menu5 ページ -->
+
+
+	</body>
+</html>

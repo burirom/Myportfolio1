@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<title>jQuery rollover サンプル</title>
+	<link type="text/css" rel="stylesheet" href="css/import.css" />
+	<script type="text/javascript" src="js/lib/jquery.js"></script>
+	<script type="text/javascript" src="js/lib/jquery.rollover.js"></script>
+	<script type="text/javascript"> 
+	// ツールチッププラグイン
+	$.fn.easyToolTip = function(options){
+	
+		// toolTipを生成してbodyに追加しておく
+		var toolTip = $('<div id="toolTip"></div>').hide();
+		$('body').append(toolTip);
+		
+		$(this).filter(function(){
+			// titleかaltを持っているものだけに絞る
+			return this.title || this.alt;
+		}).each(function(){
+		
+			var self = $(this);
+			// titleがあればtitleを、なければaltをターゲットにする
+			var target = this.title ? 'title' : 'alt';
+			// ターゲットにした属性の値を保存する
+			var tipText = self.attr(target);
+			
+			self.hover(function(e){
+				// ブラウザのツールチップが表示されるのを防ぐために一時的にtitle(alt)を削除
+				self.attr(target,'');
+				//alert(target);
+				// toolTipにテキストを入れて表示
+				toolTip
+					.stop(true,true)
+					.fadeIn('fast')
+					.text(tipText)
+					.css({
+						position: 'absolute',
+						top: e.pageY - 20,
+						left: e.pageX + 20
+					})
+			},function(){
+				// title(alt)を元に戻す
+				self.attr(target,tipText);
+				// toolTipを非表示にする
+				toolTip.fadeOut('fast');
+			}).mousemove(function(e){
+				// カーソルに追従させる
+				toolTip.css({
+					top: e.pageY - 20,
+					left: e.pageX + 20
+				});
+			});
+			
+		});
+	}
+	 
+	$(function(){
+		// ツールチップの実行
+		$('img,a,span').easyToolTip();
+	});
+	</script>
+</head>
+
+<body>
+
+<p><a href="http://google.co.jp" title="Googleへのリンク">Google</a><br /> 
+<a href="http://yahoo.co.jp" title="Yahoo!へのリンク">Yahoo!</a></p> 
+
+</body>
+</html>

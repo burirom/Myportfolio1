@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>通信エラー時の処理を行いたい</title>
+		<style type="text/css">
+			#error {
+				margin: -30px 0 0 -150px;
+				border: solid #000 1px;
+				padding: 10px;
+				width: 300px;
+				height: 50px;
+				background: #eee;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$.ajax({
+					url: '4hgajiofjkd',
+					type: 'GET',
+					dataType: 'html',
+					success: function(html) {
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						$('body').append('<div id="error">通信時にエラーが発生しました。<br /><span id="countDown" style="color: #f00; font-weight: bold; font-size: 120%">5</span>秒後にページをリロードします。</div>');
+						setTimeout(function() {
+							$('#countDown').text(4);
+							setTimeout(function() {
+								$('#countDown').text(3);
+								setTimeout(function() {
+									$('#countDown').text(2);
+									setTimeout(function() {
+										$('#countDown').text(1);
+										setTimeout(function() {
+											$('#countDown').text(0);
+											alert('画面をリロードします');
+											location.reload(true);
+										}, 1000);
+									}, 1000);
+								}, 1000);
+							}, 1000);
+						}, 1000);
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1></h1>
+		<h2>著者</h2>
+		<ul></ul>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>IE6で透過pngを利用したい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="jquery.ifixpng.js"></script>
+		<script type="text/javascript">
+$(function(){
+	$.ifixpng("pixel.gif");
+	$('img[src$=.png]').ifixpng(); 
+});
+		</script>
+		<style type="text/css">
+body{
+	background:url("background.jpg");
+}
+h1{
+	padding:30px;
+}
+
+		</style> 
+	</head>
+	<body>
+		<h1><img src="logo.png" /></h1>
+
+	</body>
+</html>

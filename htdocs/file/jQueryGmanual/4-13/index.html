@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<title>WhatInOut : jQueryプラグイン サンプル</title>
+	<link type="text/css" rel="stylesheet" href="css/import.css" />
+	<script type="text/javascript" src="jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="jquery.easing.js"></script>
+	<script type="text/javascript" src="whatinout.js"></script>
+	<script type="text/javascript">
+		jQuery(function($) {
+			$('#whatIn').click(function() {
+				$('#whatInOut').whatIn({
+					sizeFrom: 95,
+					duration: 500,
+					callback: function() {
+						alert('whatInが実行されました');
+					}
+				});
+			});
+			$('#whatOut').click(function() {
+				$('#whatInOut').whatOut({
+					sizeTo: 95,
+					duration: 500,
+					callback: function() {
+						alert('whatOutが実行されました');
+					}
+				});
+			});
+			$('#whatSlideIn').click(function() {
+				$('#whatInOut').whatSlideIn({
+					posIn: '20',
+					duration: 500,
+					callback: function() {
+						alert('whatSlideInが実行されました');
+					}
+				});
+			});
+			$('#whatSlideOut').click(function() {
+				$('#whatInOut').whatSlideOut({
+					posOut: '-20',
+					duration: 500,
+					callback: function() {
+						alert('whatSlideOutが実行されました');
+					}
+				});
+			});
+		});
+	</script>
+</head>
+
+<body>
+
+<div id="wrap">
+
+	<p>
+		<a href="#" id="whatIn">whatIn</a>
+		<a href="#" id="whatOut">whatOut</a>
+		<a href="#" id="whatSlideIn">whatSlideIn</a>
+		<a href="#" id="whatSlideOut">whatSlideOut</a>
+	</p>
+	
+	<div id="whatInOut"></div>
+	
+</div>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>iGoogle のようなページを作りたい</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"></script>
+		<style type="text/css">
+*{
+	font-size:small;
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+#container{
+	width:960px;
+	margin:100px auto;
+}
+ul.connectedSortable{
+	width:300px;
+	float:left;
+	margin-left:20px;
+	padding-top:10px;
+}
+
+li.ui-state-default{
+	width:300px;
+}
+dl{
+	border:1px solid black;
+	margin-bottom:20px;
+}
+dl dt{
+	padding:1em;
+	color:white;
+	background:black;
+}
+dl dd{
+	background:white;
+}
+dl dd li{
+	padding:1em;
+}
+ul li.ui-state-highlight {
+	border : 1px dotted black;
+	margin-bottom:20px;
+}
+		</style>
+		<script type="text/javascript">
+$(function(){
+	$("#column1,#column2,#column3").sortable({
+		placeholder: 'ui-state-highlight',
+		connectWith: '.connectedSortable',
+		start: function(event, ui) {
+			$(ui.placeholder).height($(ui.item).height())
+		}
+	})
+})
+		</script>
+	</head>
+	<body>
+	<div id="container">
+		<ul id="column1" class="connectedSortable">
+			<li class="ui-state-default">
+				<dl id="news">
+					<dt>news</dt>
+					<dd>
+						<ul>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+						</ul>
+					</dd>
+				</dl>
+			</li>
+			<li class="ui-state-default">
+				<dl id="news">
+					<dt>news</dt>
+					<dd>
+						<ul>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+						</ul>
+					</dd>
+				</dl>
+			</li>
+		</ul>
+		<ul id="column2" class="connectedSortable">
+			<li class="ui-state-default">
+				<dl id="news">
+					<dt>news</dt>
+					<dd>
+						<ul>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+						</ul>
+					</dd>
+				</dl>
+			</li>
+			<li class="ui-state-default">
+				<dl id="news">
+					<dt>news</dt>
+					<dd>
+						<ul>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+						</ul>
+					</dd>
+				</dl>
+			</li>
+		</ul>
+		<ul id="column3" class="connectedSortable">
+			<li class="ui-state-default">
+				<dl id="news">
+					<dt>news</dt>
+					<dd>
+						<ul>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+						</ul>
+					</dd>
+				</dl>
+			</li>
+			<li class="ui-state-default">
+				<dl id="news">
+					<dt>news</dt>
+					<dd>
+						<ul>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+							<li>text text text text text text text text text </li>
+						</ul>
+					</dd>
+				</dl>
+			</li>
+		</ul>
+	</div>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>ドロップダウンメニューを作成したい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+$(function(){
+	$("ul.sub").hide();
+	$("ul.menu>li").hover(function(){
+		$("ul:not(:animated)",this).slideDown()
+	},function(){
+		$("ul",this).slideUp()	
+	}).find("ul").hide();
+	
+})
+		</script>
+		<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+}
+ul.menu{
+	margin:100px auto;
+	width:716px;
+
+}
+ul.menu li{
+	float:left;
+	width:179px;
+	height:48px;
+	background : #464646;
+	list-style-type:none;
+	text-align:center;
+	border-bottom: 1px solid #666;
+}
+ul.menu li a{
+	display:block;
+	width:177px;
+	height:100%;
+	line-height:48px;
+	color: #FFF;
+	text-decoration:none;
+	border-left: 1px solid #666;
+	border-right: 1px solid #333;
+	border-bottom: 1px solid #666;
+}
+ul.sub li{
+	float:none;
+}
+		</style>
+	</head>
+	<body>
+			<ul class="menu"> 
+				<li><a href="#">メニューA</a> 
+					<ul class="sub"> 
+						<li><a href="#">サブメニューA</a></li> 
+						<li><a href="#">サブメニューA</a></li> 
+						<li><a href="#">サブメニューA</a></li> 
+					</ul> 
+				</li> 
+				<li><a href="#">メニューB</a> 
+					<ul class="sub"> 
+						<li><a href="#">サブメニューB</a></li> 
+						<li><a href="#">サブメニューB</a></li> 
+						<li><a href="#">サブメニューB</a></li> 
+					</ul> 
+				</li> 
+				<li><a href="#">メニューC</a> 
+					<ul class="sub"> 
+						<li><a href="#">サブメニューC</a></li> 
+						<li><a href="#">サブメニューC</a></li> 
+						<li><a href="#">サブメニューC</a></li> 
+					</ul> 
+				</li>
+				<li><a href="#">メニューD</a> 
+					<ul class="sub"> 
+						<li><a href="#">サブメニューD</a></li> 
+						<li><a href="#">サブメニューD</a></li> 
+						<li><a href="#">サブメニューD</a></li> 
+					</ul> 
+				</li> 
+			</ul>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>Twitter APIを使いたい</title>
+		<link type="text/css" rel="stylesheet" href="jquery.jtweetsanywhere-1.1.0.css" />
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="jquery.jtweetsanywhere-1.1.0.min.js"></script>
+		<script type="text/javascript" src="http://platform.twitter.com/anywhere.js?id=601UolLqX1TbMWLDryuSA&v=1"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('#tweetsFeed').jTweetsAnywhere({
+					showTweetBox:{
+						counter: true,
+						width: 380,
+						height: 65,
+						label: '<span style="color: #D1C7BA">つぶやけます</span>',
+						onTweet: function(textTweet){
+							alert('つぶやきました: ' + textTweet);
+						}
+					}
+				});
+			});
+		</script>
+	</head>
+<body>
+
+<div id="tweetsFeed">
+</div>
+
+</body>
+</html>

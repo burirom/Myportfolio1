@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>グラフを表示したい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="jquery.jqplot.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="jquery.jqplot.min.css" />
+		 <!--[if IE]><script language="javascript" type="text/javascript" src="excanvas.min.js"></script><![endif]--> 
+		<script language="javascript" type="text/javascript" src="plugins/jqplot.barRenderer.min.js"></script>
+		<script language="javascript" type="text/javascript" src="plugins/jqplot.pieRenderer.min.js"></script>
+	<script language="javascript" type="text/javascript" src="plugins/jqplot.canvasAxisLabelRenderer.js"></script> 
+	<script language="javascript" type="text/javascript" src="plugins/jqplot.canvasAxisTickRenderer.js"></script> 		
+		<script type="text/javascript">
+$(function() {
+  var s1 = [ 15, 7, 5, 3, 1 ];
+  var s2 = [ 0, 5, 7, 9, 13 ];
+  $.jqplot('chart1',  [  s1 , s2 ] ,{ 
+    title:'収益比較',
+    axes:{yaxis:{min:-2, max:16}}
+  });
+  $.jqplot('chart2',  [  s1 , s2 ] ,{ 
+    title:'収益比較',
+    series:[{renderer:$.jqplot.BarRenderer},{renderer:$.jqplot.BarRenderer}],
+    axes:{yaxis:{min:-2, max:16}}
+  });
+  $.jqplot('chart3', [s1, s2], {
+    title:'収益比較',
+    stackSeries: true,
+    seriesDefaults: {fill: true, showMarker: false, shadow: false},
+    axes:{
+      xaxis:{pad:1.0, numberTicks:5, autoscale:false} , 
+      yaxis:{min:0, max:20, numberTicks:5}
+    }
+  });
+});
+		</script>
+	</head>
+	<body>
+		<div id="chart1" style="height:400px;width:300px;"></div>
+		
+		<div id="chart2" style="height:400px;width:300px;"></div>
+		
+		<div id="chart3" style="height:400px;width:300px;"></div>
+	</body>
+</html>

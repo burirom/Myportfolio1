@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<rdf:RDF 
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="サイトのRSSのURL">
+    <title>サイトのタイトル</title>
+    <link>サイトのURL</link>
+    <description>サイトの内容</description>
+    <items>
+      <rdf:Seq>
+        <rdf:li resource="記事のURL1" />
+        <rdf:li resource="記事のURL2" />
+        <rdf:li resource="記事のURL3" />
+      </rdf:Seq>
+    </items>
+  </channel>
+  <item rdf:about="記事1のURL">
+    <title>記事1のタイトル</title>
+    <link>記事1のURL</link>
+    <description>記事1の内容</description>
+  </item>
+  <item rdf:about="記事2のURL">
+    <title>記事2のタイトル</title>
+    <link>記事2のURL</link>
+    <description>記事2の内容</description>
+  </item>
+  <item rdf:about="記事3のURL">
+    <title>記事3のタイトル</title>
+    <link>記事3のURL</link>
+    <description>記事3の内容</description>
+  </item>
+</rdf:RDF>

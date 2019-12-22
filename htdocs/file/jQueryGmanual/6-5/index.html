@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>チェックボックスやラジオボタンのデザインを変えたい</title>
+
+		<link type="text/css" href="css/flick/jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script>
+		<script type="text/javascript">
+$(function() {
+  $("#gender").buttonset();
+  $("#check").button();
+  $("#format").buttonset();
+});
+		</script>
+		<style type="text/css">
+		*{
+			font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+			font-size: 11px;
+		}
+		div{
+			margin:30px;
+		}
+		</style>
+	</head>
+	<body>
+<div id="gender">
+	性別<br />
+  <input type="radio" id="mail" name="radio" /><label for="mail">男性</label>
+  <input type="radio" id="femail" name="radio" /><label for="femail">女性</label>
+</div>
+<div id="format">
+  経験<br />
+  <input type="checkbox" id="check1" /><label for="check1">jQuery</label>
+  <input type="checkbox" id="check2" /><label for="check2">JavaScript</label>
+  <input type="checkbox" id="check3" /><label for="check3">CSS3</label>
+  <input type="checkbox" id="check4" /><label for="check4">HTML5</label>
+</div>
+<div>
+  <input type="checkbox" id="check" /><label for="check">利用規約に同意する</label>
+</div>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<title>複雑なeasing処理を行いたい サンプル</title>
+	<style type="text/css">
+		#wrap {
+			padding: 0 0 0 100px;
+		}
+		
+		#animate {
+			width: 100px;
+			height: 100px;
+			background: #000;
+			position: relative;
+		}
+	</style>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+        $(function() {
+        	$('#animate1').click(function() {
+                $('#animate').animate({
+                  top: 50,
+                  left: 30,
+                  width: 200,
+                  height: 200
+                },
+                {
+                  specialEasing: {
+                    top: 'linear',
+                    left: 'swing',
+                    width: 'linear',
+                    height: 'swing'
+                  },
+                  duration: 500
+                });
+            });
+          
+            $('#reset').click(function() {
+                $('#animate').animate({
+                  top: 0,
+                  left: 0,
+                  width: [100, 'linear'],
+                  height: [100, 'linear']
+                },
+                {
+                  easing: 'swing',
+                  duration: 500
+                });
+            });
+        });
+	</script>
+</head>
+
+<body>
+
+<div id="wrap">
+	
+	<p>
+		<input type="button" id="animate1" value="Animate" />
+		<input type="button" id="reset" value="Reset" />
+	</p>
+	
+	<div id="animate"></div>
+	
+</div>
+
+</body>
+</html>

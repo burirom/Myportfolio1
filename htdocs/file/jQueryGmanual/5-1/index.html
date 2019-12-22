@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<title>アラートを修飾したい サンプル</title>
+	<link rel="stylesheet" href="jquery.alerts-1.1/jquery.alerts.css" type="text/css" />
+	<script type="text/javascript" src="js/lib/jquery.js"></script>
+	<script type="text/javascript" src="jquery.alerts-1.1/jquery.alerts.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('#alert').click(function() {
+				jAlert('これはアラートです', '注意');
+			});
+			
+			$('#confirm').click(function() {
+				jConfirm('このまま進みますか？', '確認', function(r) {
+					jAlert('選んだ結果: ' + r, '確認結果');
+				});
+			});
+			
+			$('#prompt').click(function() {
+				jPrompt('何かタイプしてください:', 'デフォルトの値', 'プロンプト', function(r) {
+					if( r ) jAlert('入力した内容 ' + r);
+				});
+			});
+		});
+	</script>
+</head>
+
+<body>
+
+<p><input type="button" id="alert" value="Alertを表示する" /></p>
+<p><input type="button" id="confirm" value="Confirmを表示する" /></p>
+<p><input type="button" id="prompt" value="Promptを表示する" /></p>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>スクロールバーに追随して移動するメニュー</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			$(window).scroll(function(){
+				var menuTop = $(document).scrollTop()-$("#nav").offset().top+10;
+				if(menuTop<0){
+					menuTop=0;
+				}
+				$("#nav ul").stop().animate({
+					top : menuTop+"px"
+				}, 'fast','swing');
+			});
+		});
+		</script>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<h1>sample site</h1>
+			</div>
+<div id="nav">
+	<ul>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">Items</a></li>
+		<li><a href="#">Company</a></li>
+		<li><a href="#">Contact</a></li>
+	</ul>
+</div>
+			<div id="main">
+				<dl>
+					<dt>Lorem ipsum dolor sit amet,</dt>
+					<dd><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis neque urna, molestie id cursus non, bibendum nec magna. Mauris consequat faucibus ante sollicitudin ullamcorper. Proin et felis orci. Nulla vitae diam sit amet felis semper ultricies. Nulla vitae mauris sit amet augue pulvinar pulvinar. Donec tincidunt viverra turpis eget suscipit. Morbi eu lacus iaculis turpis suscipit pretium. Aenean ultricies scelerisque dictum. Phasellus tincidunt, nibh lacinia facilisis aliquam, lacus quam condimentum orci, id lacinia justo odio vel purus. Mauris molestie tortor eu purus facilisis at congue sapien commodo. Sed ac eros vitae odio ultrices mollis nec a lorem. Phasellus sit amet dolor nec tellus consequat ornare sit amet ut ipsum. Vestibulum sagittis, mi sed pulvinar semper, lacus mauris lobortis eros, eu egestas est lectus nec lacus. Donec in lacus quis elit consectetur accumsan sit amet sed tortor. Etiam id vestibulum libero. Nam faucibus tincidunt felis, eu feugiat nibh fringilla vel. Donec adipiscing dictum imperdiet. Nulla ac fringilla neque. Curabitur posuere euismod est vel vehicula. Curabitur quis ligula sit amet quam tempus venenatis.</p></dd>
+					<dt>Integer rhoncus felis mauris.</dt>
+
+					<dd><p>Integer rhoncus felis mauris. Donec massa nisi, posuere vel posuere vel, suscipit sed magna. Sed congue scelerisque odio, faucibus tempor nisl posuere condimentum. In eu tellus vitae elit consequat pretium. Maecenas nec ultrices dolor. Curabitur eu pulvinar turpis. Aenean vel tortor justo, id dapibus velit. Mauris pulvinar massa sit amet erat mollis sit amet ornare tellus aliquet. Quisque ullamcorper elementum libero, ut vehicula neque placerat nec. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Morbi et ante turpis, et fringilla tortor. In hac habitasse platea dictumst. Proin eros urna, sagittis vitae tristique et, ullamcorper ac leo. Donec elementum arcu tortor. Praesent tincidunt dui in est adipiscing ac lobortis lorem porttitor. Nullam et dui elit. Vivamus hendrerit vestibulum enim, quis lobortis erat viverra vitae. Donec at pellentesque mi. Mauris lobortis libero ac metus ultricies accumsan. </p></dd>
+					<dt>Integer pretium porttitor lectus at tempor.</dt>
+					<dd><p>Integer pretium porttitor lectus at tempor. Donec nec cursus elit. Maecenas ornare malesuada urna vitae lobortis. Sed vulputate sapien quis purus cursus consectetur. Aenean nulla neque, egestas ut accumsan nec, convallis vel enim. Vestibulum vehicula interdum diam nec condimentum. Etiam in condimentum justo. Fusce a tortor metus, id pellentesque orci. Sed facilisis, tellus quis tempus faucibus, justo elit sodales lorem, eget placerat lectus risus bibendum ipsum. Donec varius mattis quam eu consequat. Praesent ut metus nec nibh tincidunt suscipit. Nam vulputate sodales egestas. Sed orci lectus, vestibulum ac gravida eget, congue non velit. Morbi rutrum convallis orci, in hendrerit arcu vulputate a. Aliquam aliquam facilisis libero, sit amet facilisis lacus tincidunt ac. Sed viverra nulla sit amet turpis egestas nec molestie justo congue. Vivamus a lacinia sem. Aenean ut metus arcu, non ornare orci. Praesent feugiat est eu tellus dictum ac imperdiet nisi imperdiet. </p></dd>
+				</dl>
+				<p id="toTop"><a href="#header">page top</a></p>
+			</div>
+		</div>
+	</body>
+</html>

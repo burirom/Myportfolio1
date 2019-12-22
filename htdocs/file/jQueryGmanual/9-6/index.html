@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>delicious APIを利用したい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="md5.js"></script>
+		<script type="text/javascript">
+$(function(){
+	$("#links a").each(function(){
+	  var md5hash = CybozuLabs.MD5.calc($(this).attr("href"));
+	  $.ajax({
+	    type: 'GET',
+	    dataType: 'jsonp',
+	    url: 'http://feeds.delicious.com/v2/json/urlinfo/' + md5hash,
+	    success: $.proxy( function(data){
+	      if (data.length > 0){
+	        $(this).after("<span class='delicious'>" + data[0].total_posts + 'user</span>');
+	      }
+	    }, this )
+		})
+	})
+});
+		</script>
+		<style type="text/css">
+.delicious{
+	font-size:small;
+	background-color:#73ADFF;
+	color:#FFFFFF;
+	font-family:monaco,monoscape,sans-serif;
+	margin:0 3px;
+	padding:0 3px;
+	text-decoration:none;
+}
+		</style>
+	</head>
+	<body>
+		<ul id="links">
+			<li><a href="http://www.to-r.net/">to-R</a></li>
+			<li><a href="http://blog.webcreativepark.net/">ブログ</a></li>
+			<li><a href="http://javascript.webcreativepark.net/">JavaScript Library Archive</a></li>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3-9　 再帰的に置き換え処理を行いたい</title>
+		<script type="text/javascript" src="script/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			$('#main').html($('#main').html().replace(/main/ig, "sub"));
+		});
+		</script>
+		<style type="text/css">
+#main{
+	color:red;
+}
+.main-inner{
+	color:blue;
+}
+#main-body{
+	color:green;
+}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			main
+			<div class="main-inner">
+				main-inner
+				<div id="main-body">
+					main-body
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

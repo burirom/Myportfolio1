@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<title>Cookieを使いたい サンプル</title>
+	<link type="text/css" rel="stylesheet" href="css/import.css" />
+	<script type="text/javascript" src="jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="jquery.cookie.js"></script>
+	<script type="text/javascript">
+	
+	/* @example 
+		$.cookie(
+			'the_cookie',s
+			'the_value',
+			{
+				expires: 7,
+				path: '/',
+				domain: 'jquery.com',
+				secure: true
+			}
+		);
+	*/
+	
+	$(function() {
+		
+		if ( !$.cookie('firstCheck') ) {
+			alert('no cookie');
+			$('#firstCheck').show();
+			$.cookie('firstCheck', 'true');
+		} else {
+			alert('there is cookie');
+		}
+		
+		$('#clearCookie').click(function() {
+			alert('clearCookie');
+			$.cookie('firstCheck', null);
+		});
+	
+	});
+	
+	</script>
+</head>
+
+<body>
+
+<div id="wrap">
+
+	<div id="firstCheck" style="display: none">初めてこられた方へ</div>
+	<p><a href="#" id="clearCookie">Cookieをクリアする</a></p>
+
+</div>
+
+</body>
+</html>

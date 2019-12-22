@@ -1,0 +1,36 @@
+.portfolio_item{
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.portfolio_item img{
+    height: 150px;
+    width: 160px;    
+    
+}
+.portfolio_item a{
+    text-decoration: none;
+    color: #696969;
+}
+.title{
+    font-size: 24px;
+}
+
+.portfolio{
+/*    text-align: center;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+body{
+/*    background: url(../img/p0101_m.png);*/
+}
+.name{
+    font-size: 80px; 
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 80px;
+    color: #696969;
+}

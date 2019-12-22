@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>クロスフェードギャラリーを作成したい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+$(function(){
+	$("#container").html($("a").get().reverse());
+	
+	$("#container a").hover(function(){
+		$(this).stop(true, true);
+	},function(){
+		crossFade();
+	})
+	
+	function crossFade(){
+			$("a:last").delay(3000).fadeOut(function(){
+					$(this).prependTo("#container").show()
+					crossFade();
+			})
+	}
+	crossFade();
+})
+		</script>
+		<style type="text/css">
+#container{
+	width:400px;
+	margin:100px auto;
+}
+#container a{
+	position:absolute;
+}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<a href="#"><img src="photo1.jpg" alt="" /></a>
+			<a href="#"><img src="photo2.jpg" alt="" /></a>
+			<a href="#"><img src="photo3.jpg" alt="" /></a>
+			<a href="#"><img src="photo4.jpg" alt="" /></a>
+			<a href="#"><img src="photo5.jpg" alt="" /></a>
+		</div>
+	</body>
+</html>

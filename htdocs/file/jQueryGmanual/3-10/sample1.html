@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>33-10　 イベントデリゲートで効率よくイベントを設定したい</title>
+		<script type="text/javascript" src="script/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+		$(function() {
+			$("#tbl td").click(function() {
+				$(this).css('background' , 'red');
+			});
+		});
+		</script>
+		<style type="text/css">
+		td{
+			padding:1em;
+			border:1px solid #CCC;
+		}
+		</style>
+	</head>
+	<body>
+		<table id="tbl">
+			<tr>
+				<td>a1</td> <td>b1</td> <td>c1</td> <td>d1</td> <td>e1</td>
+			</tr>
+			<tr>
+				<td>a2</td> <td>b2</td> <td>c2</td> <td>d2</td> <td>e2</td>
+			</tr>
+			<tr>
+				<td>a3</td> <td>b3</td> <td>c3</td> <td>d3</td> <td>e3</td>
+			</tr>
+			<tr>
+				<td>a4</td> <td>b4</td> <td>c4</td> <td>d4</td> <td>e4</td>
+			</tr>
+		</table>
+	</body>
+</html>

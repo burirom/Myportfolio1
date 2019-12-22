@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<title>ページ内リンクをスムーズスクロールにしたい サンプル</title>
+	<style type="text/css">
+		a {
+			display: block;
+			font-size: 123%;
+		}
+		#top {
+			padding-bottom: 8000px;
+		}
+	</style>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery.easingscroll.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('a').easingScroll({
+				easing: 'easeInOutCirc',
+				duration: 700
+			});
+		});
+	</script>
+</head>
+
+<body>
+
+<a href="#bottom" id="top">↓ Bottom</a>
+<a href="#top" id="bottom">↑ Top</a>
+	
+</body>
+</html>

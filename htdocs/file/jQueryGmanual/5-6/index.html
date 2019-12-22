@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>フローティングウィンドウを利用したい</title>
+		<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script>
+		<style type="text/css">
+*{
+	font-size:small;
+}
+		</style>
+		<script type="text/javascript">
+$(function(){
+	$("#foo").dialog({autoOpen: false});
+	$("#open").click(function(){
+		$("#foo").dialog('open');
+	})
+	$("#close").click(function(){
+		$("#foo").dialog('close');
+	})
+})
+		</script>
+	</head>
+	<body>
+<input type="button" value="window open" id="open" /> 
+<input type="button" value="window close" id="close" />
+<div id="foo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis neque urna, molestie id cursus non, bibendum nec magna. Mauris consequat faucibus ante sollicitudin ullamcorper. Proin et felis orci. Nulla vitae diam sit amet felis semper ultricies. Nulla vitae mauris sit amet augue pulvinar pulvinar. Donec tincidunt viverra turpis eget suscipit. Morbi eu lacus</div>
+	</body>
+</html>

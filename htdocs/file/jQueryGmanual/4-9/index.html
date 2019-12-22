@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>グラデーションを利用したい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="jquery.gradient.js"></script>
+		<style type="text/css">
+#red,#blue,#green,#black{
+	margin:50px;
+	float:left;
+	width:200px;
+	height:200px;
+}
+		</style>
+		<script type="text/javascript">
+$(function(){
+	$("#red").gradient({
+		from:      'FF0000',
+		to:        'FFDDDD',
+		direction: 'horizontal'
+	});
+	$("#blue").gradient({
+		from:      '0000FF',
+		to:        '000000',
+		direction: 'vertical'
+	});
+	$("#green").gradient({
+		from:      '00FF00',
+		to:        'DDFFDD',
+		direction: 'horizontal'
+	});
+	$("#black").gradient({
+		from:      'CCCCCC',
+		to:        '000000',
+		direction: 'vertical'
+	});
+});
+		</script>
+	</head>
+	<body>
+		<div id="red"></div>
+		<div id="blue"></div>
+		<div id="black"></div>
+		<div id="green"></div>
+	</body>
+</html>

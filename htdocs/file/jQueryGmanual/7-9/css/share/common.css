@@ -1,0 +1,134 @@
+@charset "utf-8";
+
+/*-----------------------------------------------------------
+
+ common.css
+ 
+ Define common styles in this file.
+ Using the YUI fonts.css,
+ font-size properties will be defined below table.
+ 
+ |px|%|
+ |10|77|
+ |11|85|
+ |12|93| (was 93)
+ |13|100|
+ |14|108| (was 107)
+ |15|116| (was 114)
+ |16|123.1| (was 122)
+ |17|131| (was 129)
+ |18|138.5| (was 136)
+ |19|146.5| (was 144)
+ |20|153.9| (was 152)
+ |21|161.6| (was 159)
+ |22|167|
+ |23|174|
+ |24|182|
+ |25|189|
+ |26|197|
+ 
+ ex) 12px
+ 
+ element {
+ 	font-size: 93%;
+ }
+	
+ ------------------------------------------------------------*/
+
+/*-----------------------------------------------------------
+ Clearfix
+ ------------------------------------------------------------*/
+ 
+div.clearfix {
+	zoom: 1;
+}
+
+div.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0px;
+	clear: both;
+	line-height: 0; 
+	visibility: hidden;
+}
+
+/*-----------------------------------------------------------
+ Common Settings
+ ------------------------------------------------------------*/
+ 
+html {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	background: #fafafa;
+}
+
+p {
+	padding: 1em 0;
+}
+
+ul.nav {
+	border: solid #bbb 1px;
+	border-bottom: none;
+	position: absolute;
+	top: 100px;
+	left: 40px;
+	z-index: 100;
+}
+
+	ul.nav li {
+	}
+	
+		ul.nav li a {
+			border-bottom: solid #bbb 1px;
+			display: block;
+			width: 150px;
+			height: 40px;
+			background: #fff;
+			line-height: 40px;
+			text-indent: 10px;
+		}
+		ul.nav li a:hover {
+			background: #eee;
+		}
+		ul.nav li a.current {
+			background: #eee;
+		}
+
+div#top,
+div#about,
+div#works,
+div#contact {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #fffec8;
+}
+div#about {
+	top: 100%;
+	left: 0;
+	color: #39382b;
+	background: #b1bf99;
+}
+div#works {
+	top: 0;
+	left: 100%;
+	color: #fffec8;
+	background: #5b604d;
+}
+div#contact {
+	top: 100%;
+	left: 100%;
+	color: #fffec8;
+	background: #39382b;
+}
+
+h1, h2 {
+	font-size: 121%;
+	padding: 30px 0 0 40px;
+}

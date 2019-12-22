@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>プレースホルダーを実装したい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+$(function() {
+	$("#keyword").each(function(){
+		$(this).data("default",$(this).val());
+	}).focus(function(){
+		if(!$(this).hasClass("fill")){
+			$(this).val("").addClass("fill");
+		}
+	}).blur(function(){
+		if($(this).val()==""){
+			$(this).val($(this).data("default")).removeClass("fill");
+		}
+	});
+});
+
+		</script>
+		<style type="text/css">
+		input{
+			color:#CCC;
+			font-size: 11px;
+			padding:4px;
+		}
+		input.fill{
+			color:black;
+		}
+		#wrap{
+			width:300px;
+			margin:50px;
+		}
+		</style>
+	</head>
+	<body>
+	<div id="wrap">
+	<input type="text" name="slide" value="Search Keyword" id="keyword" />
+	</div>
+	</body>
+</html>

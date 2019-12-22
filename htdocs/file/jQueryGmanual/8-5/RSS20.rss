@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+  <channel>
+    <title>サイトのタイトル</title>
+    <link>サイトのURL</link>
+    <description>サイトの内容</description>
+    <item>
+      <title>記事1のタイトル</title>
+      <link>記事1のURL</link>
+      <description>記事1の内容</description>
+    </item>
+    <item>
+      <title>記事2のタイトル</title>
+      <link>記事2のURL</link>
+      <description>記事2の内容</description>
+    </item>
+    <item>
+      <title>記事3のタイトル</title>
+      <link>記事3のURL</link>
+      <description>記事3の内容</description>
+    </item>
+  </channel>
+</rss>

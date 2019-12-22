@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>フォームの入力文字数を数えたい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			$("#message").bind("keyup change",function(){
+				$("#num").text($(this).val().length);
+			});
+			
+			$("#message2").data("num",$("#num2").text()).bind("keyup change",function(){
+				var num = $(this).data("num")-$(this).val().length;
+				$("#num2").text(num);
+				if(num<0){
+					$("#num2").addClass("warning");
+				}else{
+					$("#num2").removeClass("warning");
+				}
+			});
+		});
+		</script>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+				div{
+					margin:100px;
+				}
+				p{
+					color:#CCC;
+					font-weight:bolder;
+					font-size:2em;
+					text-align:right;
+					width:300px;
+				}
+				p.warning{
+					color:#E00;
+				}
+				textarea{
+					padding:5px;
+					width:300px;
+					height:100px;
+				}
+		</style>
+	</head>
+	<body>
+		<div>
+			<p id="num">0</p>
+			<textarea id="message"></textarea>
+		</div>
+		<div>
+		<p id="num2">140</p>
+			<textarea id="message2"></textarea>
+			
+		</div>
+	</body>
+</html>

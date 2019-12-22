@@ -1,0 +1,221 @@
+@charset "UTF-8"
+/*ヘッダー*/
+header {
+	background-color: #f9f6f2;
+}
+
+h1 .title {
+	text-decoration: none;
+	color: #696969;
+	font-size: 24px;
+}
+
+.dropdown-menu {
+	background-color: #f9f6f2;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.dropdown-item {
+	color: #696969;
+	padding: 10px;
+}
+
+.nav-link {
+	height: 100%;
+	padding: 10px;
+}
+
+@media (min-width: 992px) {
+	.navbar-expand-lg {
+		padding: 0;
+	}
+
+	.nav-item {
+		padding: 10px;
+	}
+
+	.nav-item:hover {
+		background-color: #f1d6ab;
+		color: #f9f6f2;
+	}
+
+	.dropdown-item:hover {
+		background-color: #f1d6ab;
+	}
+}
+
+/*フッター*/
+.fotter {
+	background-color: #397a4c;
+}
+
+fotter .container {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.footer-title {
+	font-size: 18px;
+}
+
+fotter .row {
+	text-decoration: none;
+	color: #dfddc7;
+	font-size: 16px;
+}
+
+@media (min-width: 992px) {
+	.footer-title {
+		font-size: 18px;
+		border-right: solid 1px #dfddc7;
+	}
+}
+
+/*パンくずリスト*/
+.bread {
+	border-top: solid 1px #dfddc7;
+}
+.breadcrumb {
+	background-color: #f9f6f2;
+	font-size: 14px;
+	margin: 0;
+}
+
+.breadcrumb li a {
+	text-decoration: none;
+	color: #696969;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+	content: ">>";
+}
+
+/*body*/
+body {
+	background-color: #f9f6f2;
+}
+
+/*トップページbody*/
+
+img {
+	width: 100%;
+}
+
+h2 {
+	font-size: 18px;
+}
+
+.notice {
+	border-left: solid 10px #a0855b;
+	padding-left: 10px;
+	color: #696969;
+}
+
+.notice-title {
+	color: #a0855d;
+}
+
+.notice-item {
+	color: #696969;
+}
+
+.top-body {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+@media (max-width: 576px) {
+	.top-body .notice-title {
+		font-size: 16px;
+		text-decoration: none;
+		border: none;
+	}
+}
+
+.top-body .card {
+	border: none;
+	background-color: #f9f6f2;
+}
+
+/*施設案内のbody*/
+
+.card-header {
+	color: #696969;
+}
+.facility-body {
+}
+
+.facility-body .card {
+	padding: 0;
+}
+.facility-item {
+	margin-bottom: 30px;
+}
+.card-body {
+	color: #696969;
+}
+
+/*利用案内のbody*/
+
+.table-contents {
+	background-color: #f2eee9;
+	border: solid 1px #dfddc7;
+	border-radius: 20px;
+	color: #696969;
+	padding: 15px;
+}
+.table-of-contents ol{
+	text-decoration: none;
+}
+.table-of-contents ol a{
+	color: #696969;
+}
+
+
+
+.utilize-body {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.utilize-body .col-sm-12 {
+	margin-top: 30px;
+}
+
+.utilize {
+	border-left: solid 10px #a0855b;
+	padding-left: 10px;
+	color: #696969;
+}
+
+.utilize-title {
+	color: #a0855d;
+}
+
+.utilize-item {
+	color: #696969;
+}
+
+.utilize-body .card-header {
+	background-color: #f2eee8;
+}
+.utilize-body .card-body {
+	background-color: #f9f6f2;
+}
+
+.utilize-body .card {
+	font-size: 16px;
+	text-decoration: none;
+	border: none;
+}
+
+@media (max-width: 576px) {
+	.utilize-title {
+		font-size: 16px;
+	}
+	iframe{
+		height: 300px;
+	}
+	
+}

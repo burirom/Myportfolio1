@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3-6　 プラグインを作成したい</title>
+		<script type="text/javascript" src="script/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="script/jquery.changeColor2.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			$.fn.changeColor2.color = "red";
+			$("a").changeColor2();
+			$("b").changeColor2();
+			$("p").changeColor2();
+		});
+		</script>
+	</head>
+	<body>
+		<div><a href="#">aaaaaaaaaaaaa</a></div>
+		<div><b>bbbbbbbbbbbbb</b></div>
+		<div><p>ppppppppppppp</p></div>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3-14　 thisが示す値を固定したい</title>
+		<script type="text/javascript" src="script/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+var obj = {
+	name: "John",
+	fnc: function() {
+		alert( this.name );
+	}
+}
+$(function() {
+	$("button").click(obj.fnc);
+});
+		</script>
+	</head>
+	<body>
+		<button>click!!</button>
+	</body>
+</html>

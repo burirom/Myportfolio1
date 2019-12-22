@@ -1,0 +1,127 @@
+.app_title{
+    margin-top: 40px;
+}
+h2 {
+    font-size: 18px;
+    color: #696969;
+}
+
+.item {
+    border: 1px solid #696969;
+}
+.item > .row {
+    border-bottom: dotted 1px #696969;
+    margin-bottom: 10px;
+}
+.item > .row > .col-lg-4,
+.col-lg-2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.line_btn {
+    max-width: 100%;
+    background-color: #fffafa;
+}
+.line_active {
+    background-color: #dcdcdc;
+}
+
+.colorpalette {
+    border: solid 2px #dcdcdc;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+}
+.color_active {
+    border: solid 2px #696969;
+}
+
+#white {
+    background-color: #0000;
+}
+
+#blue {
+    background-color: #4169e1;
+}
+
+#green {
+    background-color: #2e8b57;
+}
+
+#red {
+    background-color: #dc143c;
+}
+
+#yellow {
+    background-color: #f0e68c;
+}
+
+#purple {
+    background-color: #9932cc;
+}
+#black {
+    background-color: #000000;
+}
+
+/*テキスト*/
+.text_input {
+    width: 80%;
+    margin-right: 10px;
+    border: solid 1px #696969;
+}
+#font-size {
+    border-radius: 45%;
+    border: solid 1px #696969;
+}
+
+#text {
+    /*    width: 100%;*/
+    padding: 0;
+    border: dotted 1px #696969;
+    height: 30px;
+    margin-bottom: 20px;
+}
+.text_item span {
+    margin-bottom: 20px;
+}
+
+.text_none {
+    color: #a9a9a9;
+}
+
+#sketch_canvas {
+        border: 1px solid #696969;
+}
+.drop_text {
+	display: none;
+    font-size: 30px;
+    font-weight:bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    opacity: 0.3;
+}
+
+
+
+#download_btn{
+	margin: 20px 5px;
+	display: block;
+	border: solid 1px #696969;
+	text-align: center;
+	padding: 5px 10px;
+}
+
+#download_btn:hover{
+	background-color: #696969;
+	color: #ffffff;
+}
+
+
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>要素に複数の背景画像を設定したい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="jquery.background_layers.js"></script>
+		<style type="text/css">
+#box{
+	width:500px;
+	height:500px;
+}
+		</style>
+		<script type="text/javascript">
+$(function(){
+	$('#box').add_layer("url('background.png') no-repeat");
+	$('#box').add_layer("url('Grass.png') no-repeat");
+	$('#box').add_layer("url('wood.png') no-repeat");
+	$('#box').add_layer("url('leaf.png') no-repeat");
+});
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+
+		
+	</body>
+</html>

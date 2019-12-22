@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3-7　 セレクタを自作したい</title>
+		<script type="text/javascript" src="script/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+jQuery.extend(jQuery.expr[":"], {
+	max10: function(obj,index) {
+		if(index<10){
+			return true;
+		}else{
+			return false;
+		}
+	}
+});
+$(function() {
+	$("a:max10").css("color","red");
+});
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+			<li><a href="#">aaaaaaaaaaaaaaaaaaaaa</a></li>
+		</ul>
+	</body>
+</html>

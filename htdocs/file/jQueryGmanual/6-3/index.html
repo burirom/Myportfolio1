@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>カレンダーを表示したい</title>
+		<link type="text/css" href="css/start/jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script> 
+		<script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script>
+		<script type="text/javascript" src="js/jquery.ui.datepicker-ja.js"></script>
+		<script type="text/javascript">
+$(function() {
+
+  $("#datepicker1").datepicker({minDate: new Date(2009, 1 - 1, 26), maxDate: new Date(2010, 9 - 1, 26)});
+
+});
+		</script>
+		<style type="text/css">
+		body{
+			font: 62.5% "Trebuchet MS", sans-serif;
+			margin: 50px;
+		}
+		</style>
+	</head>
+	<body>
+	<p>Date: <input type="text" id="datepicker1" /></p>
+
+	</body>
+</html>

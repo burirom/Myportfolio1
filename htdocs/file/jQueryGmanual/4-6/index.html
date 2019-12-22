@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>スタイルシートの切り替えを行いたい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="styleswitch.js"></script>
+		<link rel="stylesheet" type="text/css" href="medium.css" title="medium" />
+		<link rel="alternate stylesheet" type="text/css" href="small.css" title="small" />
+		<link rel="alternate stylesheet" type="text/css" href="large.css" title="large" />
+		<style type="text/css">
+		ul{
+			border:1px solid #CCC;
+			list-style-type:none;
+			padding:2px;
+			float:right;
+			margin:0;
+		}
+		ul:after{
+			content:"";
+			display:block;
+			clear:both;
+		}
+		li{
+			border:1px solid #CCC;
+			padding:3px;
+			margin:2px;
+			float:left;
+		}
+		li a{
+			text-decoration:none;
+		}
+		a.selected{
+			font-weight:bold;
+		}
+		</style>
+	</head>
+	<body>
+		<ul> 
+			<li><a href="index.html" rel="small" class="styleswitch">小</a></li> 
+			<li><a href="index.html" rel="medium" class="styleswitch selected">中</a></li> 
+			<li><a href="index.html" rel="large" class="styleswitch">大</a></li> 
+		</ul>
+		<h1>Stylesheet switcher using jQuery</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sollicitudin vulputate turpis non vehicula. Nullam nisi nibh, bibendum non commodo sit amet, venenatis sed tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam quis arcu id elit tincidunt aliquet id nec ligula. Donec id mollis magna. Nullam nec turpis massa. Maecenas vestibulum varius ipsum, et tristique mauris blandit ut. Pellentesque vel sapien dui, vel fermentum libero. Fusce pharetra, nisi ac rhoncus tempus, ante nisl bibendum purus, sit amet accumsan lacus justo eu tortor. Phasellus ac nibh nulla, dapibus vestibulum erat. Curabitur iaculis porta dolor, vitae pharetra diam ultrices sit amet. Donec erat diam, commodo sit amet lobortis id, viverra quis leo. Suspendisse at metus eget diam blandit accumsan. Aliquam in leo nec arcu accumsan convallis a eu sem. Proin scelerisque metus quis arcu ultricies aliquet. Vestibulum velit diam, ultricies vel iaculis luctus, sollicitudin et arcu. Mauris euismod risus aliquet libero faucibus vitae dignissim eros molestie. Sed eleifend congue tellus quis bibendum. Quisque porttitor massa varius erat consequat tempor.</p>
+	</body>
+</html>

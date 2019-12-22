@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3-15　 セレクタで指定した要素の数を取得したい</title>
+		<script type="text/javascript" src="script/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+$(function() {
+	var div = $("div");
+	if(div.length>0){
+		div.css("color","red");
+	}
+});
+		</script>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+	</body>
+</html>

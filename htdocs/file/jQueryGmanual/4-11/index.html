@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>ドロップシャドウを利用したい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="jquery.dropshadow.js"></script>
+		<style type="text/css">
+#box{
+	width:200px;
+	height:200px;
+	padding:20px;
+	background:gray;
+}
+		</style>
+		<script type="text/javascript">
+$(function(){
+	$('div').dropShadow({
+		left : 3 ,
+		top : 3 ,
+		blur : 5 ,
+		color : "blue"
+	});
+	$('span').dropShadow({
+		left : 3 ,
+		top : 3 ,
+		blur : 2 ,
+		color : "white"
+	});
+});
+		</script>
+	</head>
+	<body>
+		<div id="box"><span>テキストシャドウ</span></div>
+
+		
+	</body>
+</html>

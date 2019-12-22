@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>YouTube APIを利用したい</title>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+		<script type="text/javascript">
+$(function(){
+	$("form").submit(function(){
+		var keyword = $("#keyword").val();
+		if(!keyword){
+			alert("検索キーワードを入力してください");
+		}else{
+			search(keyword,0);
+		}
+		return false;
+	});
+	
+	//movie list search
+	var search =function(keyword,page){
+		$.ajax({
+			url : 'http://gdata.youtube.com/feeds/api/videos',
+			data : {
+				"vq":keyword, 
+				"start-index" : (page*4+1) ,
+				"max-results" : 4 , 
+				"alt" : "json-in-script" 
+			} , 
+			dataType : 'jsonp' ,  
+			success : function(data){
+				//show list
+				$("ul").empty();
+				$.each(data.feed.entry,function(i, item){
+					var media = item.media$group;
+					var li = $("<li ><img src='"+media.media$thumbnail[0].url+"'>"
+								 + item.title.$t+"</li>").data("api",item.id.$t);
+					$("ul").append(li);
+				});
+				//set next btn
+				if(data.feed.openSearch$totalResults.$t>page*4){
+					$("#next").show().unbind("click").bind("click",function(){
+						search(keyword,page+1);
+					});
+				}else{
+					$("#next").hide();
+				}
+				//set prev btn
+				if(page>0){
+					$("#prev").show().unbind("click").bind("click",function(){
+						search(keyword,page-1);
+						
+					});
+				}else{
+					$("#prev").hide();
+				}
+			} , 
+			error : function(){
+				alert("YouTube APIへのアクセスに失敗しました。");
+			}
+		});
+	}
+	//show movie player
+	$("#nav").delegate("li","click",function(){
+		$("object#embedPlayer").replaceWith('<div id="player"></div>');
+		var params={ allowScriptAccess: "always" };
+		var atts={ id: "embedPlayer" };
+		swfobject.embedSWF(
+			"http://www.youtube.com/v/"+$(this).data("api").split("/")[6]
+				+"&enablejsapi=1&playerapiid=player001&border=1",
+			"player", "580", "360", "8", null, null, params, atts);
+	});
+});
+
+
+
+
+
+
+		</script>
+		<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+}
+div#header{
+	padding:15px;
+}
+div#header input{
+	height:30px;
+	width:300px;
+	font-size:20px;
+}
+div#header input#btn{
+	height:38px;
+	width:100px;
+}
+div#nav{
+	float:left;
+	padding:15px;
+	width:320px;
+}
+div#nav li{
+	font-size:small;
+	float:left;
+	height:160px;
+	list-style-type:none;
+	width:150px;
+	text-align:center;
+	padding-bottom:10px;
+	margin-right:10px;
+}
+div#nav li img{
+	width:150px;
+}
+div#main {
+	float:left;
+}
+#prev,#next{
+	display:none;
+}
+
+		</style>
+	</head>
+	<body>
+<div id="header">
+  <form>
+    <input type="text" id="keyword" />
+    <input type="submit" value="検索!" id="btn" />
+  </form>
+</div>
+<div id="nav">
+  <ul></ul>
+  <input type="button" value="前へ" id="prev" />
+  <input type="button" value="次へ" id="next" />
+</div>
+<div id="main">
+  <div id="player"></div>
+</div>
+	</body>
+</html>

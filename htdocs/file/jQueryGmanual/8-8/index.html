@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta http-equiv="Content-Style-Type" content="text/css" /> 
+		<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+		<title>ローディング画像を表示したい</title>
+		<style type="text/css">
+			#loading {
+				display: none;
+				width: 100px;
+				height: 100px;
+				background: url(loading.gif) no-repeat center center;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('#button').click(function() {
+					$('#content h1, #content p').html('');
+					$('#loading').show();
+					$.ajax({
+						url: 'content.html',
+						type: 'GET',
+						dataType: 'html',
+						success: function(html) {
+							var _div = $('<div>' + html + '</div>');
+							$('#loading').hide();
+							$('h1', '#content').text($('h1', _div).text());
+							$('p', '#content').text($('p', _div).text());
+						}
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<p><input type="button" value="要素を読み込む" id="button" /></p>
+		<div id="content">
+			<div id="loading"></div>
+			<h1></h1>
+			<p></p>
+		</div>
+	</body>
+</html>
